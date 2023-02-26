@@ -1,0 +1,761 @@
+<html>
+<head>
+    <title>Role Matcher</title>
+    
+    <link rel="icon" 
+          type="image/png" 
+          href="img/favicon.png">
+    <meta charset="utf-8">
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro&display=swap" rel="stylesheet">
+    
+    <link rel="apple-touch-icon" href="img/touch-icon-iphone.png">    
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    
+</head>
+    <style>
+        * {
+          margin: 0;
+          padding: 0;
+        }
+        
+        :focus {
+        outline: 0;
+        }
+        
+        body {
+          font-family: "Source Sans Pro",Helvetica,Arial,sans-serif;
+          color:#272625;
+          background-color:#6A8D73
+        }
+        
+
+        h1 {
+          text-align:center;
+          font-size:20pt;
+          color:#951b81;
+          margin-top:15px;
+          font-style:regular;
+          background: -webkit-linear-gradient(225deg,#672482, #ae1c63);
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+          font-weight:normal;
+        }
+        
+        h2{
+            color:#951b81;
+            background: -webkit-linear-gradient(225deg,#672482, #ae1c63);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        h3{
+            color:#951b81;
+            background: -webkit-linear-gradient(225deg,#672482, #ae1c63);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+
+        label {
+          padding-top:14px;
+          padding-bottom:14px;
+          font-weight: 500;
+          margin-left:20px;
+          margin-right:20px;
+          margin-top:6px;
+          display:block;
+          font-size:16px;
+          color:#951B81;
+          background-color:white;
+          border-radius: 25px;
+          box-shadow: 5px 5px 6px rgba(0, 0, 0, .1);
+          border: 1.5pt solid transparent;
+          border-radius: 15px;
+          width:250px;
+          transform: translateZ(0);
+      
+        }
+
+        label:hover {
+          background:#e3dede;
+          cursor:pointer;
+        }
+
+        p{
+            padding:10px;
+        }
+        
+        
+        button {
+          background-color: #E6007E; 
+          border: none;
+          color: white;
+          padding: 15px 32px;
+          text-align: center;
+          text-decoration: none;
+          display: inline-block;
+          font-size: 15px;
+          border-radius: 15px;
+          
+      }
+      
+      .button {
+        background-position: center;
+        transition: background 0.8s;
+      }
+      
+      
+      
+      @media  (max-width: 1034px) 
+      {
+      
+      ul.choices {
+        list-style: none;
+        columns: 3;
+        -webkit-columns: 3;
+        -moz-columns: 3;
+        text-align: center;
+         margin-bottom:25px;
+         padding-bottom:25px;
+         width:90%;
+         margin: auto;
+      }
+  }
+  
+  @media(min-width: 1100px){
+      
+      ul.choices {
+              list-style: none;
+              columns: 3;
+              -webkit-columns: 3;
+              -moz-columns: 3;
+              text-align: center;
+               column-gap: 10%;
+               margin-bottom:25px;
+               padding-bottom:25px;
+               width:50%;
+               padding-left:25%;
+            }
+        }
+           
+      
+      input[type="checkbox"]{
+          visibility:hidden;
+      }
+      
+      input[type="checkbox"]:checked+label{ 
+          font-weight: 500;
+          border: 2px solid #E6007E;
+          color:#E6007E;
+       } 
+      
+            
+       div.logo {
+           position: absolute;
+           height:60px;
+           width:160px;
+           left :50px;
+           top:10px;
+           margin:10px;
+       }
+       
+       .column {
+         float: left;
+         padding: 10px;
+       }
+
+       .left {
+         width: 25%;
+         margin-right:20px;
+       }
+
+       .right {
+         width: 65%;
+         
+       }
+
+       /* Clear floats after the columns */
+       .row:after {
+         content: "";
+         display: table;
+         clear: both;
+       }
+
+
+       #profiles > div > div > div.column.right > h2{
+           padding:10px;
+           font-size:20pt;
+           font-weight:500;
+       }
+       
+       div.box{
+           background-color:white;
+           display:block;
+           margin:5px;
+           width:100%;
+           margin-top:30px;
+           padding:0px;
+       }
+       
+       #profiles > div {
+           background-color:white;
+       }
+       
+       
+       button#clear_btn{
+           background-color:transparent;
+           margin-top:10px;
+           border: 2px solid #E6007E;
+           color:#E6007E;
+           border-radius: 15px;
+           
+       }
+       
+       #profiles > div > div > div.column.left > img{
+           float:right;
+           
+       }
+       
+       
+       #profiles > div > div > div.column.right > ul
+       {
+           padding-left:40px;
+       }
+       
+        </style>
+    <body ontouchstart="">
+        <div class='top_bit'>
+        <div class="logo"><img src = "img/new_logo.png" height="60px"></div>
+        
+      <h1 style='padding-top:70px;padding-bottom:20px;'>Pick your strongest skills:</h1>
+         
+
+        <ul class="choices">
+
+<li><input class ='choice' id="logicalreasoning" type="checkbox"><label for="logicalreasoning">Logical Reasoning</label></li>
+
+<li><input class ='choice' id="statisticalanalysis" type="checkbox"><label for="statisticalanalysis">Statistical Analysis</label></li>
+
+<li><input class ='choice' id="curiosity" type="checkbox"><label for="curiosity">Curiosity</label></li>
+
+<li><input class ='choice' id="problemsolving" type="checkbox"><label for="problemsolving">Problem Solving</label></li>
+
+<li><input class ='choice' id="storytelling" type="checkbox"><label for="storytelling">Story Telling</label></li>
+
+<li><input class ='choice' id="programming" type="checkbox"><label for="programming">Programming</label></li>
+
+<li><input class ='choice' id="design" type="checkbox"><label for="design">Design</label></li>
+
+<li><input class ='choice' id="communication" type="checkbox"><label for="communication">Communication</label></li>
+
+<li><input class ='choice' id="coaching" type="checkbox"><label for="coaching">Coaching</label></li>
+
+<li><input class ='choice' id="teamwork" type="checkbox"><label for="teamwork">Teamwork</label></li>
+
+<li><input class ='choice' id="analyticalthinking" type="checkbox"><label for="analyticalthinking">Analytical Thinking</label></li>
+
+<li><input class ='choice' id="research" type="checkbox"><label for="research">Research</label></li>
+
+<li><input class ='choice' id="listening" type="checkbox"><label for="listening">Listening</label></li>
+
+<li><input class ='choice' id="stakeholdermanagement" type="checkbox"><label for="stakeholdermanagement">Stakeholder Management</label></li>
+
+<li><input class ='choice' id="creativity" type="checkbox"><label for="creativity">Creativity</label></li>
+
+<li><input class ='choice' id="logicalthinking" type="checkbox"><label for="logicalthinking">Logical Thinking</label></li>
+
+<li><input class ='choice' id="leadership" type="checkbox"><label for="leadership">Leadership</label></li>
+
+<li><input class ='choice' id="organisation" type="checkbox"><label for="organisation">Organisation</label></li>
+
+
+        </ul>
+
+
+    
+    <center>
+    <button class="button" onclick="calc()">Click to see what role you matched to!</button>
+</center>
+    <center>
+    <button id='clear_btn' class="button" onclick="reset_app()"  style='visibility:hidden;'>Clear all</button>
+</center>
+
+</div>
+
+<div class = 'box'>
+<h3 id='roletext' hidden style='padding-bottom:30px;padding-top:30px;text-align: center;'>You could be well suited to becoming a...</h3>
+<div id = 'profiles'>
+</div>
+
+
+</div>
+
+<div style ="display:none">
+    
+
+
+<div id="project_manager" class="panel">
+    <div class='box'>
+    
+  <div class="row">
+    <div class="column left" >
+  <img src = "img/People_Delegate@4x.png" height="150px">
+    </div>
+    <div class="column right" >
+
+  <h2>Project Manager</h2>
+
+<p>Hi, I’m Nicola and I am a Project Manager. My role is packed full of variety from lots of teamwork and problem solving to managing people and plans. My role on a project team is to lead the team to success. My team usually comprises of data architects, data engineers, data scientists, software developers, testers, and information designers. An example of a project could be creating and launching a new mobile app or building something big like an air traffic control system.</p>
+
+<p>My day typically starts by reviewing the plan of activities, followed by a catch up with my project team to ensure everyone understands what needs to be achieved and to identify any problems. Once the team briefing is over, I then make sure I get the right people together to solve any problems and communicate important updates to my customer, so they are aware of how the team is progressing and problems that have arisen. One of the highlights of my role is organising the team celebrations once the projects are completed.</p>
+
+<p>Skills:</p>
+<ul>
+<li>Leadership</li>
+<li>Organisation</li>
+<li>Communication</li>
+<li>Coaching</li>
+</ul>
+    
+<p>The subjects I chose to study were Business Studies, Psychology and PE– so you don’t always need to be a Scientist or a Mathematician to have a career in Technology.</p>
+ 
+    </div>
+  </div>
+</div></div>
+
+
+
+<!---start top-->
+<div id="technical_solution_architect" class="panel">
+    <div class='box'>
+    
+  <div class="row">
+    <div class="column left" >
+  <img src = "img/Data_Data_model@4x.png" height="150px">
+    </div>
+    <div class="column right" >
+
+  <h2>Technical Solution Architect</h2>
+
+<p>Hi, I’m Praji and I am a Technical Solution Architect. My role is very similar to an Architect who builds beautiful homes, except I build beautiful software systems. The systems I design, and architect help everyday people, like your Mum and Dad fulfil their banking needs from the comforts of their home – like using their phone to pay bills – now you know why they are on their mobile phones so much ! An Architects job is to make sure the system is designed properly before the programmers can write code to build it, just like an Architect will have detailed technical drawings of a house before the builders start laying the foundations and bricks.
+</p>
+<p> </p>
+<p>A good Architect benefits from a good mix of technical and personal skills. Good communication skills are key if I am to make sure the programmers know exactly what to build and how - can you image someone wanting a 4 bedroom, 2 story house and what gets built is a 1 bedroom flat! 
+ </p>
+
+<p>Skills:</p>
+<ul>
+<li>Design</li>
+<li>Programming</li>
+<li>Communication</li>
+<li>Analytical thinking </li>
+</ul>
+
+<p>I was reasonably good at Maths and Science at school and choose to study Math, Physics, Chemistry and Biology at A-level, keeping my options pretty wide open until the last moment. I eventually choose to do a degree in Engineering with Electronics and Telecommunication. </p>
+
+
+
+    </div>
+  </div>
+</div></div>
+
+<!---start top-->
+
+
+<!---start top-->
+<div id="data_scientist" class="panel">
+    <div class='box'>
+    
+  <div class="row">
+    <div class="column left" >
+  <img src = "img/Data_science_Experiment@4x.png" height="150px">
+    </div>
+    <div class="column right" >
+        <h2>Data Scientist</h2> 
+        
+<p>Hi, I’m Paulina and I am a Data Scientist. In my everyday role I am continually problem solving which I love. I use my analytical, statistical, and programming skills to collect, analyse, and interpret large amounts of information (data). I use this information to develop solutions to solve problems or improve the way we do things – data scientists try to make life simpler and better. For example, data science can be used to detect credit card fraud and support cancer diagnosis. </p>
+
+<p>Being a data scientist, I have built a wide range of technical competencies including coding, machine learning, analysing and predicting trends and using tools to produce reports or visualisations. What I love about being a data scientist is that no problem or solution is exactly the same, so my job is never boring and with each problem and challenge l learn and discover more and more. What I enjoy the most is working with a variety of people and presenting my solutions to others. </p>
+<p> </p>
+<p>Skills:</p>
+<ul>
+<li>Logical Reasoning</li>
+<li>Problem Solving</li>
+<li>Programming</li>
+<li>Teamwork</li>
+</ul>
+
+<p>The subjects I chose to study were Mathematics, English and Geography so I chose a mixture of arts and sciences. </p>
+
+    </div>
+  </div>
+</div></div>
+
+<!---start top-->
+
+<!---start top-->
+<div id="data_consultant" class="panel">
+    <div class='box'>
+    
+  <div class="row">
+    <div class="column left" >
+  <img src = "img/People_Presentation@4x.png" height="150px">
+    </div>
+    <div class="column right" >
+  <h2>Data Consultant</h2>
+
+<p>Hi, I’m Camilla, and I am a Consultant. My role works in a similar way to a doctor - however instead of making people feel better, I help businesses function better and listen to their problems and advise them on data and technology solutions that could help them solve those problems.  </p>
+
+<p>I have to understand the pro’s and con’s of each solution and the value it will or won’t bring. I also work with the project manager and the customer to plan how we will build the data solution, how long will it take, the cost and who we will need on the team. Once the project is agreed I then work on that project until the solution is successfully implemented. </p>
+
+<p>I love my job because of the variety of work I get to do. I’m always learning about different businesses and new technologies - face recognition; robots and Artificial Intelligence. I enjoy research and reading about new technologies and what they do. I meet and work with lots of different people and I get the opportunity to travel to lots of new places. </p>
+
+<p>Being a consultant is all about thinking to the future which makes it exciting as you are dealing with unchartered water a lot of the time.</p>
+
+<p>Skills:</p>
+<ul>
+<li>Stakeholder management</li>
+<li>Communication</li>
+<li>Problem solving</li>
+<li>Research</li>
+</ul>
+
+<p>I studied Economics, English Literature and Physical Education at A-level, and at university I studied Information Management and Business Studies.</p>
+
+
+    </div>
+  </div>
+</div></div>
+
+<!---start top-->
+
+
+<div id="software_developer" class="panel">
+    <div class='box'>
+    
+  <div class="row">
+    <div class="column left" >
+  <img src = "img/software_eng@4x.png" height="150px">
+    </div>
+    <div class="column right" >
+        <h2>Software Developer</h2>
+        
+<p>Hi, I’m Rose and I'm a Software Developer. My role means I get to turn all the amazing apps and technology ideas into reality! There's a lot of variety in software to work on; I've worked on websites, data visualisation and air traffic control systems; there's always something new to learn. </p>
+
+<p>I currently work in a team of developers, designers, testers, software architects and product managers. Together with them, I plan what part of the software to work on, how to implement it and how to test that it works exactly as we expect it to. Once we are happy with the plan and the technical designs. I write the code so good programming skills are the key to my role. It can be challenging because no two features are exactly the same, but that also means I'll never be bored. One of the most satisfying parts of being a developer is seeing the results of all your efforts, and your team's efforts, come together and work.</p>
+
+<p>Skills </p>
+<ul>
+<li>Programming </li>
+<li>Teamwork</li>
+<li>Communication</li>
+<li>Problem solving</li>
+</ul>
+
+<p>The subjects I studied at school were Maths, Biology, Chemistry, Physics, Geography, English Language and Literature. I went to secondary school in the Netherlands, so I also studied Dutch as well as German.</p>
+<p>I too went onto university where I did a degree in Literature and Creative Writing but decided to switch degrees and ended up getting my BSc in Computer Science! I am still very passionate about creativity and I apply those creativity skills in my role as a developer too. </p>
+
+    </div>
+  </div>
+</div></div>
+<!---start top-->
+
+<!---start top-->
+
+
+<div id="test_engineer" class="panel">
+    <div class='box'>
+    
+  <div class="row">
+    <div class="column left" >
+  <img src = "img/Dashboard_Operations@4x.png" height="150px">
+    </div>
+    <div class="column right" >
+        <h2>Test Engineer</h2>
+        
+<p>Hi, I’m Sharon, I am a Test Engineer.  In my role I test solutions and any changes to those solutions. For example, before the building society could allow 15 million customers the opportunity to manage their savings account via our website, I had to lead and work as part of a team to test and verify that everything worked correctly.</p>
+
+<p>In my day to day role, I lead a team and have to plan the levels of testing we need to do, for which project and who will carry out the testing work. One of my favourite part of my job is when I get to talk to the people (called Users, Clients or Customers) who will be using the new system, to make sure what we think they want, is actually what they want - so good listening and facilitation skills are very important. A critical part of my role is trying my hardest to find errors or faults – we testers call these defects. We testers love finding faults or errors as we can then work with other teams to try and find out why the fault or error is occurring. My role is very important as we have to make sure all our customers data is safe and that they can easily access their financial information through the internet, mobile phones and tablets without encountering problems. As a tester a logical and inquisitive mind is a great asset – I love trying to break things.</p>
+
+<p>Skills:</p>
+<ul>
+<li>Logical Thinking</li>
+<li>Communication</li>
+<li>Teamwork</li>
+<li>Good Listening and Facilitation </li>
+</ul>
+<p>The subjects I chose to study were English language, Maths, English literature, Integrated Science, History, Geography and Social Science 
+</p>
+    </div>
+  </div>
+</div></div>
+<!---start top-->
+
+<!---start top-->
+
+
+<div id="information_designer" class="panel">
+    <div class='box'>
+    
+  <div class="row">
+    <div class="column left" >
+  <img src = "img/Design_Tools@4x.png" height="150px">
+    </div>
+    <div class="column right" >
+  <h2>Information Designer</h2>
+
+<p>Hi, I’m Emily and I am an Information Designer. I find ways to visually present information and data so that that people can easily and quickly understand it. An important part of my role is listening to people and asking questions to find out what information they need to have to do their job well. I use this to decide how to arrange information on a dashboard or page, which graphs to use, and how to draw attention to the most important pieces of information. I work closely with the Project Manager and software developers (who make my designs work with real data). I love pulling together all the information I get from my costumers I am designing information for and my team and figuring out how to show the information in the best possible way – bouncing ideas off other people always helps! </p>
+
+<p>Skills: </p>
+<ul>
+<li>Design</li>
+<li>Creativity</li>
+<li>Teamwork</li>
+<li>Listening</li>
+</ul>
+<p>I chose to study Maths, Further Maths, Sociology and French before studying for a degree in French. Following my degree, I took a postgraduate course in Design for Visual Communication, so it took me a while to decide that Information Design was the thing for me. </p>
+
+    </div>
+  </div>
+</div></div>
+<!---start top-->
+
+<!---start top-->
+
+
+<div id="risk_modeller" class="panel">
+    <div class='box'>
+  <div class="row">
+    <div class="column left" >
+  <img src = "img/Finance_Regulation@4x.png" height="150px">
+    </div>
+    <div class="column right" >
+        <h2>Risk Modeller</h2>
+        
+<p>Hi, I’m Francis, and I am a Risk Modeller. In my role I build and use models which help people to understand where my organisation might lose money (e.g. by giving people loans that they then can’t pay back). A model is just a way of representing something and I use data, some maths, and knowledge of how things work in real life to do this. What I love about my role is that I get to learn about lots of different things all the time, solve problems for people and provide insight for my colleagues so that they understand things better too.</p>
+<p> </p>
+<p>I use communication skills to understand the business process in the first place (and to explain the numbers that come out of the model), logical reasoning, maths and statistics to decide how to represent the process, problem solving and coding skills to build the model, and team work and organisational skills to make sure we get things done on time!</p>
+
+<p>Skills: </p>
+<ul>
+<li>Logical Reasoning</li>
+<li>Problem Solving</li>
+<li>Programming</li>
+<li>Statistical Analysis</li>
+</ul>
+
+<p>I studied maths (plus a bit of further maths) and science at A-level and then did a degree in Physics.</p>
+
+    </div>
+  </div>
+</div></div>
+
+<!---start top-->
+
+
+
+<!---start top-->
+
+
+<div id="data_journalist" class="panel">
+    <div class='box'>
+  <div class="row">
+    <div class="column left" >
+  <img src = "img/General_Open_book@4x.png" height="150px">
+    </div>
+    <div class="column right" >
+        <h2>Data Journalist</h2>
+        
+<p>Hi, I’m Isabelle, and I am a Data Journalist. Just like a journalist interviews people, a data journalist questions a dataset. In my role I look for interesting stories in the data but instead of writing articles, I draw charts and graphs.</p>
+<p> </p>
+<p>In my day to day role, I work with a team of Data Scientists and Data Engineers as well as colleagues from across my company. My goal is to create content which links insights from different data sources and reports to create a story and then telling this story to help senior leaders in my company make important decisions. Sometimes there is too much data and so part of my job is to highlight the right content for the audience – and do this in a user friendly and explainable way. </p>
+<p> </p>
+<p>Keep in mind that data journalism is a mindset, not a finality, therefore everyone can do it, you included! Just like punk enabled access to music to people who were not from a musical background, data journalism enables access to data visualisation to people who are not from a graphic design / statistician background. Put simply: Data journalism is for everyone.</p>
+
+
+<p>Skills</p>
+<ul>
+<li>Creativity</li>
+<li>Story Telling</li>
+<li>Listening</li>
+<li>Curiosity</li>
+</ul>
+
+<p>I chose to study Maths, Creative Writing and Sciences at school. I then went on to study Storytelling and Design and Experimental Statistics in more detail before moving into a career in Data Journalism.</p>
+
+    </div>
+  </div>
+</div></div>
+
+<!---start top-->
+
+</div>
+
+<!-- take out this line if you don't want ot show it. or comment out the JS.-->
+<div id='role_score'></div>
+
+      <script>
+          
+          
+          function reset_app(){
+              
+              dd = Array.from(document.getElementsByClassName("choice"));
+
+              var mychoices = {};
+              let picked = new Set()
+              var arrayLength = dd.length;
+              
+              for (var i = 0; i < arrayLength; i++) {
+                  
+                  dd[i].checked = false;
+                      
+              }
+              
+              document.getElementById("profiles").innerHTML = '';
+              document.getElementById("roletext").hidden = true;
+              document.getElementById("clear_btn").style.visibility = "hidden";
+          }
+          
+          
+         
+          function calc() { 
+              
+              dd = Array.from(document.getElementsByClassName("choice"));
+
+              var mychoices = {};
+              let picked = new Set()
+              var arrayLength = dd.length;
+              
+              for (var i = 0; i < arrayLength; i++) {
+                  
+                  mychoices[dd[i].id] = dd[i].checked
+                  if (dd[i].checked){
+                      picked.add(dd[i].id)
+                  }
+                      
+              }
+              
+
+              
+              // calculate the top score from some dummy roles matrix.
+              
+              //Problem Solving','Lying','Creativity','Planning','Organisation','Leadership','Flexibility', 'Handle Pressure', 'Initiative', 'Teamwork' , 'Communication', 'Computer and technical literacy
+              
+              var role_stats = {
+               'project_manager':['leadership','coordination','coordination','coaching'], 'technical_solution_architect':['design','programming','communication','analyticalthinking'], 'data_scientist':['logicalreasoning','problemsolving','programming','statisticalanalysis'], 'data_consultant':['stakeholdermanagement','communication','problemsolving','research'], 'software_developer':['programming','teamwork','communication','problemsolving'],
+'test_engineer':['logicalthinking','communication','teamwork','listening','facilitating'],           'information_designer':['design','teamwork','creativity','listening'],              'risk_modeller':['logicalreasoning','problemsolving','programming','statisticalanalysis'],
+'data_journalist':['creativity','curiosity','storytelling','listening'],
+                   
+              
+              };
+
+             // given the choces, loop over the roles and find the one with most matches. 
+              
+              var best_role_num = 0
+              var scores = {}
+              var shower = []
+              for (var key in role_stats) {
+                  // check if the property/key is defined in the object itself, not in parent
+                  if (role_stats.hasOwnProperty(key)) {           
+                      // console.log(key, role_stats[key]);
+                      var myset = new Set(role_stats[key]);
+                      // do intersection
+                      let overlap = new Set([...picked].filter(x => myset.has(x)));
+                      scores[key] = overlap.size;
+                      if (overlap.size > 0) {
+                          shower.push([document.getElementById(key).innerHTML,overlap.size]);     
+                      }
+                  }
+              }
+              
+              shower.sort(function(a,b){
+                  return b[1] - a[1];
+              });
+              var shower2 = shower.map(function(value,index) { return value[0];})
+              
+              if (shower2.length == 0){
+                  return  0;
+              }
+              //show only top 3 matches
+
+              document.getElementById("profiles").innerHTML = shower2.slice(0, 3).join(' ');
+              document.getElementById("roletext").hidden = false;
+              document.getElementById("clear_btn").style.visibility = "visible";
+              //var elmnt = document.getElementById("profiles");
+              //elmnt.scrollIntoView({behavior: "smooth",block: "start"});
+              
+              scroll(document.getElementById("profiles"));
+              //remove this line if you don't want the debug
+              //document.getElementById("role_score").innerHTML = JSON.stringify(scores);
+              //console.log(scores);
+          }
+          
+      </script>
+          
+          
+          
+          <script>
+              function scroll(element) {
+                let start = null;
+                const target = element && element? element.getBoundingClientRect().top : 0;
+                const firstPos = window.pageYOffset || document.documentElement.scrollTop;
+                let pos = 0;
+
+                (function() {
+    
+                  var browser = ['ms', 'moz', 'webkit', 'o'];
+    
+                  for(let x = 0, length = browser.length; x < length && !window.requestAnimationFrame; x++) {
+                    window.requestAnimationFrame = window[browser[x]+'RequestAnimationFrame'];
+                    window.cancelAnimationFrame = window[browser[x]+'CancelAnimationFrame'] 
+                    || window[browser[x]+'CancelRequestAnimationFrame'];
+                  }
+    
+                }());
+  
+                function showAnimation (timestamp) {
+
+                  if(!start) { start = timestamp || new Date().getTime(); } //get id of animation
+    
+                  let elapsed = timestamp - start;
+                  let progress = elapsed / 600; // animation duration 600ms
+    
+                  //ease in function from https://github.com/component/ease/blob/master/index.js
+                  const outQuad = function(n){
+                    return n * (2 - n);
+                  };
+    
+                  let easeInPercentage = +(outQuad(progress)).toFixed(2);
+
+                  // if target is 0 (back to top), the position is: current pos + (current pos * percentage of duration)
+                  // if target > 0 (not back to top), the positon is current pos + (target pos * percentage of duration)
+                  pos = (target === 0)? (firstPos - (firstPos * easeInPercentage)) : (firstPos + (target * easeInPercentage));
+    
+                  window.scrollTo(0, pos);
+                  console.log(pos, target, firstPos, progress);
+    
+                  if(target !== 0 && pos >= (firstPos + target) || target === 0 && pos <= 0) {
+                    cancelAnimationFrame(start);
+                    if(element) { 
+                      element.setAttribute("tabindex", -1);
+                      element.focus();
+                    }
+                    pos = 0;
+                  } else {
+                    window.requestAnimationFrame(showAnimation);
+                  }
+    
+                }
+                window.requestAnimationFrame(showAnimation);
+  
+              }
+
+           
+              
+              
+              </script>
+     </body>
+
+    
+</html>
+
