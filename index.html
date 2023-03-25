@@ -96,6 +96,43 @@ img.team {
   margin: 10px;
   width: 15%;
 }
+ #meet-the-team {
+    text-align: center;
+    margin: 50px 0;
+  }
+  .team-container {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    max-width: 1200px;
+    margin: 50px auto;
+  }
+  .team-member {
+    width: 300px;
+    margin: 20px;
+    text-align: center;
+    border: 1px solid #ddd;
+    padding: 20px;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+  }
+  .team-member img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    margin: 20px auto;
+    display: block;
+    object-fit: cover;
+    object-position: center;
+  }
+  .team-member h3 {
+    margin: 10px 0;
+    font-size: 24px;
+  }
+  .team-member p {
+    font-size: 16px;
+    color: #666;
+  }
+
 </style>
 </head>
 <body style="background-color:#6A8D73;">
@@ -130,17 +167,26 @@ img.team {
 <img class="easeload" onload="this.style.opacity=1" src="img/found.PNG" width= "600"; height="600"; align="right"; hspace="30"; vspace="40"/> 
            
             <!-- Team Container -->
-             <div class="container1" id="team">
-                <body style="background-color:#F4ECDF;">
-                   <div class="container1" id="team">
-                 <h2 class="h2">Meet The Team</h2>
-          <img src="img/AK.PNG" style="width:15%">
-                         <img src="img/JS.PNG" style="width:15%">
-                         <img src="img/JH.PNG" style="width:15%">
-                         <img src="img/QI.PNG" style="width:15%">
-                     <img src="img/JK.PNG" style="width:15%">
- 
-                     </div>
+            <div id="meet-the-team">
+  <h2>Meet The Team</h2>
+  <div class="team-container">
+    <div class="team-member">
+      <img src="team-member-1.jpg" alt="Team Member 1">
+      <h3>John Doe</h3>
+      <p>Job Title</p>
+    </div>
+    <div class="team-member">
+      <img src="team-member-2.jpg" alt="Team Member 2">
+      <h3>Jane Smith</h3>
+      <p>Job Title</p>
+    </div>
+    <div class="team-member">
+      <img src="team-member-3.jpg" alt="Team Member 3">
+      <h3>Bob Johnson</h3>
+      <p>Job Title</p>
+    </div>
+  </div>
+</div>
 </body>
 </div>
 </html>
