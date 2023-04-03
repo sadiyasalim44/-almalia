@@ -66,26 +66,26 @@ img.found {
   }
   .team-container {
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between
+    align-items: centre;
     flex-wrap: wrap;
     background-color: white;
-    margin: 10px px;
   }
   .team-member {
   background-color: #6A8D73;
   height: 310px;
-    width: 300px;
-    margin: 10px 10px;
+    width: calc((100% / 5) - 20px);
+    margin-bottom: 20px;
     text-align: center;
     border: 1px solid #ddd;
     padding: 20px;
     box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
   }
   .team-member img {
-    width: 150px;
-    height: 150px;
+    max-width: 100%;
+    height: auto;
     border-radius: 50%;
-    margin: 20px auto;
+    margin: 0px auto;
     display: block;
     object-fit: cover;
     object-position: center;
